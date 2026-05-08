@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChemBuddy</title>
+
+  <style>
+    body{
+      font-family: Arial;
+      background:#f4f7fb;
+      padding:20px;
+    }
+
+    .container{
+      max-width:700px;
+      margin:auto;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1{
+      text-align:center;
+      color:#1e3a8a;
+    }
+
+    select,input,button{
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      border-radius:5px;
+      border:1px solid #ccc;
+    }
+
+    button{
+      background:#2563eb;
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .hasil{
+      margin-top:20px;
+      padding:10px;
+      background:#e0f2fe;
+      border-radius:5px;
+      font-weight:bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🧪 ChemBuddy</h1>
+
+  <label>Pilih Kalkulator</label>
+
+  <select id="menu">
+    <option value="normalitas">Normalitas</option>
+    <option value="molaritas">Molaritas</option>
+    <option value="be">BE</option>
+    <option value="bm">BM</option>
+    <option value="ar">Ar</option>
+    <option value="suhu">Suhu</option>
+    <option value="ppm">PPM</option>
+  </select>
+
+  <input type="number" id="input1" placeholder="Input 1">
+  <input type="number" id="input2" placeholder="Input 2">
+  <input type="number" id="input3" placeholder="Input 3">
+
+  <button onclick="hitung()">Hitung</button>
+
+  <div class="hasil" id="hasil">
+    Hasil akan muncul di sini
+  </div>
+
+</div>
+
+<script>
+
+function hitung(){
+
+  let menu = document.getElementById("menu").value;
+
+  let a = parseFloat(document.getElementById("input1").value);
+  let b = parseFloat(document.getElementById("input2").value);
+  let c = parseFloat(document.getElementById("input3").value);
+
+  let hasil = 0;
+
+  if(menu == "normalitas"){
+    hasil = (a / b) / (c / 1000);
+    document.getElementById("hasil").innerHTML =
+      "Normalitas = " + hasil.toFixed(4) + " N";
+  }
+
+  else if(menu == "molaritas"){
+    hasil = (a / b) / (c / 1000);
+    document.getElementById("hasil").innerHTML =
+      "Molaritas = " + hasil.toFixed(4) + " M";
+  }
+
+  else if(menu == "be"){
+    hasil = a / b;
+    document.getElementById("hasil").innerHTML =
+      "BE = " + hasil.toFixed(4);
+  }
+
+  else if(menu == "bm"){
+    hasil = a;
+    document.getElementById("hasil").innerHTML =
+      "BM = " + hasil.toFixed(4);
+  }
+
+  else if(menu == "ar"){
+    hasil = a / b;
+    document.getElementById("hasil").innerHTML =
+      "Ar = " + hasil.toFixed(4);
+  }
+
+  else if(menu == "suhu"){
+    hasil = (a * 9/5) + 32;
+    document.getElementById("hasil").innerHTML =
+      "Fahrenheit = " + hasil.toFixed(2) + " °F";
+  }
+
+  else if(menu == "ppm"){
+    hasil = a / b;
+    document.getElementById("hasil").innerHTML =
+      "PPM = " + hasil.toFixed(4) + " ppm";
+  }
+
+}
+
+</script>
+
+</body>
+</html>
